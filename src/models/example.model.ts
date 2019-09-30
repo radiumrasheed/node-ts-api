@@ -1,4 +1,4 @@
-import { Document, Model, model, Schema } from 'mongoose'
+import { Document, Model, model, Schema } from 'mongoose';
 
 
 export interface IExample extends Document {
@@ -16,9 +16,9 @@ export let ExampleSchema: Schema = new Schema({
     type: Schema.Types.String,
     default: Date.now(),
   },
-})
+});
 
 export const Example: Model<IExample> = model<IExample>(
   'Example',
   ExampleSchema,
-)
+);
