@@ -1,7 +1,6 @@
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
-import * as mongoose from 'mongoose';
 import * as logger from 'morgan';
 import * as path from 'path';
 import config from './config';
@@ -11,17 +10,6 @@ export default function () {
 
   for (const model of config.globFiles(config.models)) {
     require(path.resolve(model));
-  }
-
-  if (config.useMongo) {
-    mongoose
-      .connect(config.mongodb, {
-        promiseLibrary: global.Promise,
-        useMongoClient: true,
-      })
-      .catch(() => {
-        console.log('Error connecting to mongo');
-      });
   }
 
   app.set('views', path.join(__dirname, '../../src/views'));
