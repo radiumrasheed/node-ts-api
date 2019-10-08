@@ -57,7 +57,7 @@
     "no-switch-case-fall-through": true,
     "trailing-comma": {
       "options": {
-        "multiline": "always"
+        "multiline": "never"
       }
     },
     "no-trailing-whitespace": true,

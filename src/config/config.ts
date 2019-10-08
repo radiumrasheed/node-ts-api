@@ -9,6 +9,7 @@ class Config {
 
   public accessKeyId: string;
   public secretAccessKey: string;
+  public region: string;
   public SECRET_KEY: string;
 
   public globFiles(location: string): string[] {
@@ -33,8 +34,9 @@ class Config {
 
     dotenv.config({ path: path });
 
-    this.accessKeyId = process.env.accessKeyId;
-    this.secretAccessKey = process.env.secretAccessKey;
+    this.accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+    this.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+    this.region = process.env.AWS_DEFAULT_REGION;
     this.SECRET_KEY = process.env.SECRET_KEY;
 
   }

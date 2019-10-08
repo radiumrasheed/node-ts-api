@@ -1,6 +1,7 @@
 'use strict';
 
-// const { debug, error } = require('./../config/logger')('middleware');
+import Logger from './../config/logger';
+const { debug, error } = Logger('middleware');
 
 import config from './../config/config';
 
@@ -11,7 +12,7 @@ blueBird.Promise.promisify(jwt.verify);
 
 export default async(req, res, next) => {
   if (!req.headers.authorization) {
-    // error('Error: Authorization is not set in header');
+    error('Error: Authorization is not set in header');
     return res.status(401).send({
       status: 401,
       error: true,
@@ -22,7 +23,7 @@ export default async(req, res, next) => {
   const token = req.headers.authorization;
   try {
     const decoded = await jwt.verify(token, config.SECRET_KEY);
-    // debug('Authorization success');
+    debug('Authorization success');
 
 
     // if everything is good, save to request for use in other routes
@@ -33,7 +34,7 @@ export default async(req, res, next) => {
 
     return next();
   } catch (err) {
-    // error('Authentication failed', err);
+    error('Authentication failed', err);
     return res.status(401).send({
       status: 401,
       error: true,

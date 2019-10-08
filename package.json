@@ -34,7 +34,9 @@
     "aws-sdk": "2.544.0",
     "dotenv": "^8.1.0",
     "jsonwebtoken": "^8.5.1",
-    "bluebird": "^3.7.0"
+    "bluebird": "^3.7.0",
+    "winston-aws-cloudwatch": "latest",
+    "winston": "latest"
   },
   "devDependencies": {
     "@types/chai": "^4.1.3",
