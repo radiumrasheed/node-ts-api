@@ -7,8 +7,15 @@ import config from './../config/config';
 
 import * as  jwt from 'jsonwebtoken';
 import * as blueBird from 'bluebird';
+import { Request } from 'express';
 
 blueBird.Promise.promisify(jwt.verify);
+
+
+export interface AuthenticatedRequest extends Request {
+  user: any;
+  roles: any;
+}
 
 export default async(req, res, next) => {
   if (!req.headers.authorization) {
@@ -38,7 +45,7 @@ export default async(req, res, next) => {
     return res.status(401).send({
       status: 401,
       error: true,
-      message: 'Failed to authenticate token',
+      message: 'Failed to authenticate token'
     });
   }
 };

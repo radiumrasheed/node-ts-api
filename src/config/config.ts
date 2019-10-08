@@ -4,6 +4,7 @@ import * as dotenv from 'dotenv';
 
 class Config {
   public port: number = 3000;
+  public bucketName = 'fccc-document';
   public routes: string = './dist/routes/**/*.js';
   public models: string = './dist/models/**/*.js';
 
