@@ -9,6 +9,7 @@ class Config {
 
   public accessKeyId: string;
   public secretAccessKey: string;
+  public SECRET_KEY: string;
 
   public globFiles(location: string): string[] {
     return union([], sync(location));
@@ -34,6 +35,7 @@ class Config {
 
     this.accessKeyId = process.env.accessKeyId;
     this.secretAccessKey = process.env.secretAccessKey;
+    this.SECRET_KEY = process.env.SECRET_KEY;
 
   }
 }
