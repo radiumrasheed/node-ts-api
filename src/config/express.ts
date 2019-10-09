@@ -28,8 +28,9 @@ export default function () {
   app.use(
     (req: express.Request, res: express.Response, next: Function): void => {
       const err: Error = new Error('Not Found');
-      next(err);
-    },
+
+      res.status(500).send({ok: false, message: err.message})
+    }
   );
 
   return app;
