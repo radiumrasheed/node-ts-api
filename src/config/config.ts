@@ -3,7 +3,7 @@ import { union } from 'lodash';
 import * as dotenv from 'dotenv';
 
 class Config {
-  public port: number = 3000;
+  public port: number;
   public bucketName = 'fccc-document';
   public routes: string = './dist/routes/**/*.js';
   public models: string = './dist/models/**/*.js';
@@ -35,6 +35,7 @@ class Config {
 
     dotenv.config({ path: path });
 
+    this.port = parseInt(process.env.PORT, 10);
     this.accessKeyId = process.env.AWS_ACCESS_KEY_ID;
     this.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
     this.region = process.env.AWS_DEFAULT_REGION;
