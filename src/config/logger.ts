@@ -1,6 +1,6 @@
 'use strict';
 
-import CloudWatchTransport from 'winston-aws-cloudwatch';
+import * as CloudWatchTransport from 'winston-aws-cloudwatch';
 import * as Winston from 'winston';
 import config from './config';
 
