@@ -15,6 +15,7 @@ blueBird.Promise.promisify(jwt.verify);
 export interface AuthenticatedRequest extends Request {
   user: any;
   roles: any;
+  files?: any;
 }
 
 export default async(req, res, next) => {
