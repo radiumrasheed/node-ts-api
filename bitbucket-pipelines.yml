@@ -11,3 +11,15 @@ pipelines:
       - node
       script: # Modify the commands below to build your repository.
       - npm install
+      - npm run build
+      - npm run test
+  - step:
+      name: Build and push docker image to Docker Hub
+      caches:
+        - node
+      script:
+        - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        - docker build -f Dockerfile -t $DOCKER_IMAGE:latest .
+        - docker push $DOCKER_IMAGE:latest
+      services:
+        - docker

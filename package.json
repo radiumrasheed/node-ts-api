@@ -9,7 +9,7 @@
     "test": "mocha -r ts-node/register -w ./spec/**/*.spec.ts",
     "build": "tsc -p src",
     "start": "node dist/index.js",
-    "build:docker": "docker build -t @betaquick/fccc-doc-api .",
+    "build:docker": "docker build -t dev .",
     "docker:compose": "docker-compose up",
     "format": "prettier --write 'src/**/*ts'",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
