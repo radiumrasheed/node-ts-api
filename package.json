@@ -36,7 +36,7 @@
     "jsonwebtoken": "^8.5.1",
     "bluebird": "^3.7.0",
     "winston-aws-cloudwatch": "latest",
-    "winston": "latest",
+    "winston": "3.3.3",
     "multer": "latest"
   },
   "devDependencies": {
